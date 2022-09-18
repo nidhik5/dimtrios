@@ -1,0 +1,49 @@
+<!-- rgba(5,47,74,1) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style2.css') }}">
+</head>
+
+<body>
+    <nav>
+        <ul>
+                <h1>Detector</h1>
+            </li>
+            <div class="snav">
+                <li><b><a class="link" href="index.html">Home</a></b></li>
+                <li><b><a class="link" href="about.html">Text Summarizer</a></b></li>
+                <li><b><a class="link" href="about.html">Color Detector</a></b></li>
+                <li><b><a class="link" href="about.html">People Counter</a></b></li>
+                <li><b><a class="link" href="about.html">Language Detector</a></b></li>
+            </div>
+
+        </ul>
+    </nav>
+    
+    <div class="header">
+        <div class="left-header">
+            <div class="box1" id="output">
+                {{text}}
+            </div>
+        </div>
+        <div class="right-header">
+            <div class="box2" >
+            </div>
+        </div>
+    </div>
+    <form method="POST" class="form">
+        <input type="submit" id="submit" name="submit">
+    </form>
+    <div class="text">
+       <b><p>In this new era,where tremendous information is available on the Internet,it is most important to provide the improved mechanism to extract the information quickly and most efficiently . It is very difficult for human beings to manually extract the summary of a large documents of text. There are plenty of text material available on the Internet. So there is a problem of searching for relevant documents from the number of documents available, and absorbing relevant information from it.In order to solve the above two problems, the automatic text summarization is very much necessary.Text summarization is the process of identifying the most important meaningful information in a document or set of related documents and compressing them into a shorter version preserving its overall meanings. 2.Introduction: Before going to the Text summarization, first we, have to know that what a summary is. A summary is a text that is produced from one or more texts, that conveys important information in the original text, and it is of a shorter form. The goal of automatic text summarization is presenting the source text into a shorter version with semantics.The most important advantage of using a summary is ,it reduces the reading time. </p></b>
+    </div>
+    <script src="{{url_for('static', filename='index.js')}}"></script>
+</body>
+
+</html>
