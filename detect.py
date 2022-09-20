@@ -106,13 +106,58 @@ def summarize(text):
     # let's begin
     sumup=generate_summary( text, 2)
     return sumup
+def language(txt):
+    import numpy as np
+    import pandas as pd
+    from flask import Flask, request, render_template
+    from sklearn.feature_extraction.text import CountVectorizer
+    from sklearn.preprocessing import LabelEncoder
+    import re
 
+    cv = CountVectorizer()
+    le = LabelEncoder()
+    df = pd.read_csv("language Detection.csv")
+
+    X = df["Text"]
+    y = df["Language"]
+
+    y = le.fit_transform(y)
+
+    text_list = []
+
+    # iterating through all the text
+    for text in X:         
+        text = re.sub(r'[!@#$(),n"%^*?:;~`0-9]', ' ', text) # removes all the symbols and numbers
+        text = re.sub(r'[[]]', ' ', text)   
+        text = text.lower()          # converts all the text to lower case
+        text_list.append(text)       # appends the text to the text_list
+    
+    X = cv.fit_transform(text_list).toarray() 
+                                            
+    from sklearn.model_selection import train_test_split
+    x_train, x_test, y_train, y_test = train_test_split(X, y, test_size = 0.80)
+
+    
+    from sklearn.naive_bayes import MultinomialNB  
+    model = MultinomialNB()
+    model.fit(x_train, y_train)
+
+    x = cv.transform([txt]).toarray()# convert text to bag of words model (Vector)
+    language = model.predict(x) # predict the language
+    lang = le.inverse_transform(language) # find the language corresponding with the predicted value
+
+    output = lang[0]
+    return output
 @app.route("/",methods=["GET","POST"])
 def index():
-    return render_template("index.html")
+    return render_template("homepage.html")
 
 @app.route("/home",methods=["GET","POST"])
 def home():
+    return render_template("homepage.html")
+
+@app.route("/faced",methods=["GET","POST"])
+def faced():
     print("hello world")
     if request.method=="POST":
         url=request.form.get("url")
@@ -128,7 +173,17 @@ def text():
         sumupf=summarize(url)
         return render_template("index2.html",sumupf=sumupf,old="output")
     return render_template("index2.html")
-
+@app.route("/lang",methods=["GET","POST"])
+def lang():
+    print("Hello world")
+    if request.method=="POST":
+        url=request.form.get("url")
+        out=language(url)
+        return render_template('index4.html', prediction="language is in "+ out)
+    return render_template("index4.html")
+@app.route("/color",methods=["GET","POST"])
+def color():
+    return render_template("index3.html")
 
 
 
