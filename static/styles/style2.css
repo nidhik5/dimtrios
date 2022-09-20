@@ -1,0 +1,162 @@
+:root{
+    --color-white:white;
+    --color-pink: #ff6262;
+    --color-black:black;
+    --color-gray:gray;
+    --color-green:rgb(73, 255, 73);
+}
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+  }
+body{
+font-family: montserrat;
+}
+nav{
+background: white;
+height: 80px;
+width: 100%;
+}
+label.logo{
+color:#062538;
+font-size: 35px;
+line-height: 80px;
+padding: 0 100px;
+font-weight: bold;
+}
+nav ul{
+float: right;
+}
+nav ul li{
+display: inline-block;
+line-height: 80px;
+margin: 0 5px;
+}
+nav ul li a{
+color: #062538;
+font-size: 17px;
+padding: 7px 13px;
+border-radius: 3px;
+text-transform: uppercase;
+}
+nav ul li a:hover{
+color: #facb41;
+}
+.checkbtn{
+font-size: 30px;
+color:#062538;
+float: right;
+line-height: 80px;
+margin-right: 40px;
+cursor: pointer;
+display: none;
+}
+#check{
+display: none;
+}
+@media (max-width: 952px){
+label.logo{
+font-size: 30px;
+padding-left: 50px;
+}
+nav ul li a{
+font-size: 16px;
+}
+}
+@media (max-width: 858px){
+.checkbtn{
+display: block;
+}
+ul{
+position: fixed;
+width: 100%;
+height: 100vh;
+background: #2c3e50;
+top: 80px;
+left: -100%;
+text-align: center;
+transition: all .5s;
+}
+    nav ul li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    nav ul li a{
+      font-size: 20px;
+    }
+    #check:checked ~ ul{
+      left: 0;
+    }
+  }
+.header{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: auto auto;
+}
+.left-header{
+    background-color:var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 100vh;
+
+}
+.box1{
+    width: 40vw;
+    height: 60vh;
+    background-color:var(--color-gray);
+    border: #ff6262 solid 3px ;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    overflow: scroll;
+}
+.box1 img{
+    width: 40vw;
+    height: 60vh;
+}
+.right-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-white);
+}
+.box2{
+    width: 50vw;
+    height: 60vh;
+    background-color:var(--color-gray);
+    border: #062538 solid 5px ;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    overflow: scroll;
+}
+
+.diagram{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    border: #ff6262 5px;
+    width: 100vw;
+    height: 40vh;
+    background-color: black;
+    
+}
+.diagram img{
+    width: 80vw;
+    height: 30vh;
+}
+.form{
+    position: absolute;
+    left: 26%;
+    top: 100%;
+}
