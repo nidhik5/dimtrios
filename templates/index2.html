@@ -1,4 +1,3 @@
-<!-- rgba(5,47,74,1) -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,17 +11,17 @@
 
 <body>
     <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label> 
+        <label class="logo">DIMITRIOS</label>
         <ul>
-                <h1>Detector</h1>
-            </li>
-            <div class="snav">
-                <li><b><a class="link" href="{{url_for('home')}}">Home</a></b></li>
-                <li><b><a class="link" href="{{url_for('text')}}">Text Summarizer</a></b></li>
-                <li><b><a class="link" href="about.html">Color Detector</a></b></li>
-                <li><b><a class="link" href="about.html">People Counter</a></b></li>
-                <li><b><a class="link" href="about.html">Language Detector</a></b></li>
-            </div>
-
+          <li><b><a class="link" href="{{url_for('home')}}">Home</a></b></li>
+          <li><b><a class="link" href="{{url_for('faced')}}">poeple counter</a></b><li>
+          <li><b><a class="link" href="{{url_for('text')}}">Text Summarizer</a></b><li>
+          <li><b><a class="link" href="{{url_for('color')}}">Color Detector</a></b></li>
+          <li><b><a class="link" href="{{url_for('lang')}}">Language Detector</a></b></li>
         </ul>
     </nav>
     
